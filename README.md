@@ -1,3 +1,12 @@
+![LICENSE - MIT](https://img.shields.io/github/license/ayushch80/url-shortner?color=red&style=for-the-badge)
+![FORKS](https://img.shields.io/github/forks/ayushch80/url-shortner?color=red&style=for-the-badge)
+![CONTRIBUTORS](https://img.shields.io/github/contributors/ayushch80/url-shortner?color=red&style=for-the-badge)
+![STARS](https://img.shields.io/github/stars/ayushch80/url-shortner?color=red&style=for-the-badge)
+
+![NODE JS](https://img.shields.io/badge/Node%20JS-555555?style=for-the-badge&logo=node.js)
+![MY SQL](https://img.shields.io/badge/MY%20SQL-555555?style=for-the-badge&logo=mysql)
+![EXPRESS](https://img.shields.io/badge/EXPRESS-555555?style=for-the-badge&logo=express)
+
 # URL Shortener
 
 This project is a simple URL shortener built using Node.js and MySQL. It allows users to shorten long URLs and redirect them to their corresponding long URLs.
