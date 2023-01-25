@@ -45,6 +45,7 @@ app.get('/shorten', (req, res) => {
         console.error(err);
         res.status(500).send('Error generating short URL');
       } else {
+        res.setHeader('Content-Type', 'text/plain');  //specify content type to prevent XSS
         res.send(`Short URL: http://${req.headers.host}:3000/${shortUrl}`);
       }
     }
