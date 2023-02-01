@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 14
+
+services:
+  - mongodb
+
+install:
+  - npm ci
+
+script:
+  - npm test
+
+after_success:
+  - npm run coveralls
+
+notifications:
+  email: false
