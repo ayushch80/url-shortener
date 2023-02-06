@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Error parsing URLs!</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font-family: cursive;
+            text-align: center;
+        }
+        pre {
+            white-space: pre-wrap;
+            text-align: left;
+        }
+        pre::before{
+            counter-reset: number;
+        }
+        pre code {
+            counter-increment: number;
+            display: block;
+            margin: 0.2vh;
+        }
+        pre code::before {
+            content: counter(number) '. ';
+            display: inline-block;
+            color: gray;
+            margin-right: 1vw;
+        }
+    </style>
+</head>
+
+<body style="display:flex;justify-content: center; align-items: center; height: 50vh">
+    <div style="padding: 4vh 4vw; background-color: #e33; border-radius: 10px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);">
+        <h1 style="color:white; margin-bottom: 4vh;">Error getting URLs!</h1>
+        <pre style="background-color: black; color: white; margin: 0; padding: 2vh 1vw 0 1vw ">{error}</code>
+    </div>
+</body>
+
+</html>

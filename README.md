@@ -26,18 +26,18 @@ Features
 
 -    Clone the repository to your local machine
 
-```
+```sh
 git clone https://github.com/ayushch80/url-shortener.git
 ```
 
 -    Install the necessary packages
 
-```
+```sh
 npm install
 ```
 
 -    Create a MySQL database and table to store the short and long URLs.
-```
+```sql
 CREATE DATABASE url_shortener;
 USE url_shortener;
 CREATE TABLE urls (
@@ -48,23 +48,30 @@ CREATE TABLE urls (
 );
 ```
 
--    Update the MySQL connection details in the app.js file.
+-    Update the MySQL connection details in the .env as follows file.
+```
+PRODUCTION=[Whether it should run in production mode (true or omit the line)]
+PUBLIC_PORT=[The port on which the server should run]
+SQL_HOST=<MySQL host>
+SQL_USER=<MySQL user>
+SQL_PASSWORD=<MySQL password>
+```
 
 -    Start the server
-```
+```sh
 node app.js
 ```
 
 ## Usage
 
--    To shorten a long URL, visit http://localhost:3000/shorten?longUrl=<long-url> in your browser.
--    To redirect a short URL to its corresponding long URL, visit http://localhost:3000/<short-url> in your browser.
--    To view the contents of the urls table, visit http://localhost:3000/urls in your browser.
+-    To shorten a long URL, visit `http://localhost:3000/shorten?longUrl=<long-url>` in your browser.
+-    To redirect a short URL to its corresponding long URL, visit `http://localhost:3000/<short-url>` in your browser.
+-    To view the contents of the urls table, visit `http://localhost:3000/urls` in your browser.
 
 ## Note
 
  -   The server is running on port 3000, you can change it as per your requirement.
  -   The database credentials should be updated as per your setup.
  -   Make sure to validate the input and sanitize the output when displaying data from a database to prevent SQL injection and other security risks.
- -   The /urls route should only be accessible to authorized personnel and should be removed or secured in a production environment.
+ -   The `/urls` route should only be accessible to authorized personnel and should be removed or secured in a production environment.
  -   Displaying raw data from the database on a web page can also be a security concern. It would be a good idea to only show the necessary information and not the entire database.
