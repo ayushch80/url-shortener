@@ -14,12 +14,13 @@ const pool = mysql.createPool({
   database: 'url_shortener'
 });
 if (process.env.PRODUCTION) {
-  app.get('/urls', (req, res) => {
+  app.get('/urls', (_req, res) => {
     // Query the MySQL database for the urls table
-    pool.query('SELECT * FROM urls', (err) => {
+    pool.query('SELECT * FROM urls', (err, results) => {
       if (err) {
         console.error(err);
-        return res.status(500).send('Error getting URL data!');
+        res.status(500).send('Error getting URL data!');
+        return;
       }
       res.json(results);
     });
@@ -42,7 +43,7 @@ app.get('/shorten', (req, res) => {
         res.status(500).send('Error generating short URL');
       } else {
         res.setHeader('Content-Type', 'text/plain');  //specify content type to prevent XSS
-        res.send(`http://${req.headers.host}${PORT == 80 ? '' : `${PORT}`}/${shortUrl}`);
+        res.send(`http://${req.headers.host}${PORT === 80 ? '' : `${PORT}`}/${shortUrl}`);
       }
     }
   );
@@ -64,7 +65,7 @@ app.get('/:shortUrl', (req, res) => {
         res.status(404).send('Short URL not found');
       } else {
         // check if the long_url property exists
-        if (results[0].hasOwnProperty('long_url')) {
+        if (results[0].long_url) {
           // Redirect the user to the long URL
           res.redirect(results[0].long_url);
         } else {
