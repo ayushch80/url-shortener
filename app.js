@@ -29,7 +29,7 @@ if (process.env.PRODUCTION) {
 // Create a route to generate a short URL
 app.get('/shorten', (req, res) => {
   // Generate a short ID
-  const shortUrl = Math.random().toString(36).substring(7);
+  const shortUrl = Math.random().toString(36).substring(2,7);
   console.log(shortUrl);
   // Get the long URL from the request
   const longUrl = req.query.longUrl;
