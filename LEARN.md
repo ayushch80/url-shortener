@@ -112,13 +112,13 @@ connection.connect((err) => {
 
 Generating the ID is a bit complicated, but is a quick one-liner
 ```js
-const shortUrl = Math.random().toString(36).substring(7)
+const shortUrl = Math.random().toString(36).substring(2,7)
 ```
 Let's break it down!
 - `Math.random()` returns a random number between 1 and 2
 - `.toString(36)` converts this number from something like `1.4786228121622849` to `1.h8amj74dh2`. 
 How it works is complicated, but in summary, instead of using our decimal system with numbers from 0-9, it uses 0-9 as well as a-z. A decimal number like 120 = `10^2 * 1 + 10^1 * 2 + 10^0 * 0` or `100 + 20 + 0`. Essentially, each digit can be from 0 - 9 and is multiplied by `(number of possible values (0-9))` raised to `(digit number from right)`. In hexadecimal, the digits are from `0-9` and `a-f` (16 digits hence hexadecimal or base-16). Thus `120` in hexadecimal is `16^2 * 1 + 16^1 * 2 + 16^0 * 0` = `256 + 32 + 0` = `288` in decimal. Same way for base-36 (`0-9a-z`). Here we are converting from decimal to base-36.
-- `.substring(7)` this is to take the data from indices 7-11 (Math.random() in base-36 has 10 decimal places)
+- `.substring(2,7)` this is to take the data from indices 2-6, for a 5 digit code (Math.random() in base-36 has 10 decimal places)
 
 To add it to a GET route,
 ```js
